@@ -52,6 +52,7 @@ func processImage(file *multipart.FileHeader) ([]byte, error) {
 func extractText(imgData image.Image) ([]TextBlock, error) {
     // OCR API 호출
     // ...
+		fmt.Println(imgData)
 		return nil, nil
 }
 
@@ -59,6 +60,7 @@ func extractText(imgData image.Image) ([]TextBlock, error) {
 func removeText(imgData image.Image, blocks []TextBlock) ([]byte, error) {
     // 이미지 처리 로직
     // ...
+		fmt.Println(imgData, blocks)
 		return nil, nil
 }
 
@@ -66,6 +68,7 @@ func removeText(imgData image.Image, blocks []TextBlock) ([]byte, error) {
 func translateText(blocks []TextBlock) ([]TextBlock, error) {
     // 번역 API 호출
     // ...
+		fmt.Println(blocks)
 		return nil, nil
 }
 
@@ -73,6 +76,7 @@ func translateText(blocks []TextBlock) ([]TextBlock, error) {
 func insertText(imgData []byte, blocks []TextBlock) (image.Image, error) {
     // 이미지에 텍스트 삽입
     // ...
+		fmt.Println(imgData, blocks)
 		return nil, nil
 }
 

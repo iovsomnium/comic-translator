@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 
@@ -36,7 +36,7 @@ func loadConfig() (*AppConfig, error) {
 	defer file.Close()
 
 	// 파일 내용 읽기
-	data, err := ioutil.ReadAll(file)
+	data, err := io.ReadAll(file)
 	if err != nil {
 		return nil, fmt.Errorf("설정 파일을 읽을 수 없습니다: %w", err)
 	}

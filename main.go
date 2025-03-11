@@ -9,6 +9,7 @@ import (
 func main() {
 	// 환경설정 로드
 	cfg, err := loadConfig()
+
 	if err != nil {
 			log.Fatalf("설정을 불러오는 중 오류 발생: %v", err)
 	}
@@ -16,10 +17,13 @@ func main() {
 	// 라우터 설정
 	r := gin.Default()
 	
+	// test endpoint
+	r.GET("/test", testHandler)
+
 	// 번역 엔드포인트
 	r.POST("/translate", handleTranslate)
 	
 	// 서버 시작
-	log.Printf("서버 시작: %s 포트", cfg.Server.Port)
+	log.Printf("Server is running : %s Port", cfg.Server.Port)
 	r.Run(":" + cfg.Server.Port)
 }

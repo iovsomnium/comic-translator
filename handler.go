@@ -6,7 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func handleTranslate(c *gin.Context) {
+
+func handleTranslate(c *gin.Context) { //gin.Context == http context
     // 파일 업로드 처리
     file, err := c.FormFile("image")
     if err != nil {
@@ -23,4 +24,10 @@ func handleTranslate(c *gin.Context) {
     
     // 결과 이미지 반환
     c.Data(http.StatusOK, "image/png", resultImage)
+}
+
+func testHandler(c *gin.Context) {
+    c.JSON(http.StatusOK, gin.H{
+        "message": "service is alive",
+    })
 }
